@@ -29,8 +29,10 @@ mydata2$Sub_metering_3<-as.numeric(mydata2$Sub_metering_3)
 
 
 #Plot 2:
+#Create a line chart for Global active power, start with x-axis blank and reformat ticks and labels
 plot(mydata2$Global_active_power, type="o",
      pch=".", ylab="Global Active Power (kilowatts)",xaxt="n", xlab="")
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
+#Save the plot as a png file
 dev.copy(png,"plot2.png")
 dev.off()
