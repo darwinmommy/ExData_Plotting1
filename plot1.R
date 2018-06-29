@@ -29,6 +29,8 @@ mydata2$Sub_metering_3<-as.numeric(mydata2$Sub_metering_3)
 
 
 #Plot 1:
+#Create a histogram of global active power, in red, label x-axis, and add a main title
 hist(mydata2$Global_active_power,col="red",xlab="Global Active Power (kilowatts)",main="Global Active Power")
+#Save histogram as a png
 dev.copy(png,"plot1.png")
 dev.off()
