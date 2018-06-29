@@ -28,17 +28,19 @@ mydata2$Sub_metering_2<-as.numeric(mydata2$Sub_metering_2)
 mydata2$Sub_metering_3<-as.numeric(mydata2$Sub_metering_3)
 
 
-
-
 #Plot 3:
+#Create line graphs for 3 separate datasets: Sub metering 1, 2, and 3, start with a blank x-axis
 plot(mydata2$Sub_metering_1, type="o",
      pch=".", ylab="Energy sub metering", xlab="",xaxt="n")
 points(mydata2$Sub_metering_2,type="o",
      pch=".", col="red")
 points(mydata2$Sub_metering_3,type="o",
      pch=".",col="blue")
+#Reformat ticks and labels on xaxis
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
+#Add a legend
 legend("topright",legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        col=c("black","red","blue"),lty = 1)
+#Save the plot as a png file
 dev.copy(png,"plot3.png")
 dev.off()
