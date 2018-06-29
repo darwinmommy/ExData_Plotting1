@@ -28,16 +28,18 @@ mydata2$Sub_metering_2<-as.numeric(mydata2$Sub_metering_2)
 mydata2$Sub_metering_3<-as.numeric(mydata2$Sub_metering_3)
 
 
-
 #Plot 4:
+#Begin writing png file
 png("plot4.png")
+#Set window display parameters, 2 rows and 2 columns
 par(mfrow=c(2,2))
+#Same code as for plot 2
 plot(mydata2$Global_active_power, type="o", pch=".", ylab="Global Active Power",xaxt="n", xlab="") 
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
-
+#Plot voltage with a blank x-axis, update tick marks and labels
 plot(mydata2$Voltage, type="o", pch=".",ylab="Voltage",xlab="datetime",xaxt="n")
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
-
+#Same code as for plot 3
 plot(mydata2$Sub_metering_1, type="o",
      pch=".", ylab="Energy sub metering", xlab="",xaxt="n")
 points(mydata2$Sub_metering_2,type="o",
@@ -47,8 +49,9 @@ points(mydata2$Sub_metering_3,type="o",
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
 legend("topright",legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),
        col=c("black","red","blue"),lty = 1)
-
+#Plot Global reactive power, start with a blank x-axis and update labels and tick marks
 plot(mydata2$Global_reactive_power,type="o",
      pch=".",xlab="datetime",ylab="Global_reactive_power",xaxt="n")
 axis(1,at=c(1,1440,2880),labels = c("Thu","Fri","Sat"))
+#Finish writing png file
 dev.off()
